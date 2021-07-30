@@ -1,0 +1,10 @@
+C:\Users\user\source\repos\CalculatorWinforms\CalculatorWinforms\bin\Debug\CalculatorWinforms.exe.config
+C:\Users\user\source\repos\CalculatorWinforms\CalculatorWinforms\bin\Debug\CalculatorWinforms.exe
+C:\Users\user\source\repos\CalculatorWinforms\CalculatorWinforms\bin\Debug\CalculatorWinforms.pdb
+C:\Users\user\source\repos\CalculatorWinforms\CalculatorWinforms\obj\Debug\CalculatorWinforms.csproj.AssemblyReference.cache
+C:\Users\user\source\repos\CalculatorWinforms\CalculatorWinforms\obj\Debug\CalculatorWinforms.Properties.Resources.resources
+C:\Users\user\source\repos\CalculatorWinforms\CalculatorWinforms\obj\Debug\CalculatorWinforms.csproj.GenerateResource.cache
+C:\Users\user\source\repos\CalculatorWinforms\CalculatorWinforms\obj\Debug\CalculatorWinforms.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\CalculatorWinforms\CalculatorWinforms\obj\Debug\CalculatorWinforms.exe
+C:\Users\user\source\repos\CalculatorWinforms\CalculatorWinforms\obj\Debug\CalculatorWinforms.pdb
+C:\Users\user\source\repos\CalculatorWinforms\CalculatorWinforms\obj\Debug\CalculatorWinforms.Form1.resources
