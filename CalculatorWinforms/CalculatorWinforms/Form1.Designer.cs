@@ -50,6 +50,9 @@ namespace CalculatorWinforms
             this.btn_Equal = new System.Windows.Forms.Button();
             this.btn_Clear = new System.Windows.Forms.Button();
             this.gradientPanel1 = new CalculatorWinforms.GradientPanel();
+            this.btnHistory = new System.Windows.Forms.Button();
+            this.lblInfo = new System.Windows.Forms.Label();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.lbl_Result = new System.Windows.Forms.Label();
             this.gradientPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -276,7 +279,7 @@ namespace CalculatorWinforms
             this.btn_Num0.TabIndex = 17;
             this.btn_Num0.Text = "0";
             this.btn_Num0.UseVisualStyleBackColor = false;
-            this.btn_Num0.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Btn_Num0_MouseClick);
+            this.btn_Num0.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Btn_Num_MouseClick);
             this.btn_Num0.MouseLeave += new System.EventHandler(this.Btn_Num_MouseLeave);
             this.btn_Num0.MouseHover += new System.EventHandler(this.Btn_MouseHover);
             // 
@@ -303,9 +306,9 @@ namespace CalculatorWinforms
             this.btn_Dot.Name = "btn_Dot";
             this.btn_Dot.Size = new System.Drawing.Size(86, 88);
             this.btn_Dot.TabIndex = 19;
-            this.btn_Dot.Text = ".";
+            this.btn_Dot.Text = ",";
             this.btn_Dot.UseVisualStyleBackColor = true;
-            this.btn_Dot.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Btn_Dot_MouseClick);
+            this.btn_Dot.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Btn_Num_MouseClick);
             this.btn_Dot.MouseLeave += new System.EventHandler(this.Btn_Operation_MouseLeave);
             this.btn_Dot.MouseHover += new System.EventHandler(this.Btn_MouseHover);
             // 
@@ -325,12 +328,14 @@ namespace CalculatorWinforms
             // btn_Clear
             // 
             this.btn_Clear.BackColor = System.Drawing.Color.Silver;
-            this.btn_Clear.BackgroundImage = global::CalculatorWinforms.Properties.Resources.images;
             this.btn_Clear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_Clear.Font = new System.Drawing.Font("Arial Unicode MS", 18F, System.Drawing.FontStyle.Bold);
+            this.btn_Clear.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btn_Clear.Location = new System.Drawing.Point(335, 167);
             this.btn_Clear.Name = "btn_Clear";
             this.btn_Clear.Size = new System.Drawing.Size(87, 87);
             this.btn_Clear.TabIndex = 6;
+            this.btn_Clear.Text = "C";
             this.btn_Clear.UseVisualStyleBackColor = true;
             this.btn_Clear.Click += new System.EventHandler(this.Btn_Clear_Click);
             this.btn_Clear.MouseLeave += new System.EventHandler(this.Btn_Operation_MouseLeave);
@@ -339,14 +344,57 @@ namespace CalculatorWinforms
             // gradientPanel1
             // 
             this.gradientPanel1.Angle = 0F;
-            this.gradientPanel1.BottomColor = System.Drawing.Color.SpringGreen;
+            this.gradientPanel1.BottomColor = System.Drawing.Color.Gray;
+            this.gradientPanel1.Controls.Add(this.btnHistory);
+            this.gradientPanel1.Controls.Add(this.lblInfo);
+            this.gradientPanel1.Controls.Add(this.progressBar1);
             this.gradientPanel1.Controls.Add(this.lbl_Result);
             this.gradientPanel1.Location = new System.Drawing.Point(1, 1);
             this.gradientPanel1.Name = "gradientPanel1";
             this.gradientPanel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.gradientPanel1.Size = new System.Drawing.Size(420, 171);
             this.gradientPanel1.TabIndex = 1;
-            this.gradientPanel1.TopColor = System.Drawing.Color.MediumOrchid;
+            this.gradientPanel1.TopColor = System.Drawing.Color.LightSteelBlue;
+            // 
+            // btnHistory
+            // 
+            this.btnHistory.BackColor = System.Drawing.Color.Gray;
+            this.btnHistory.BackgroundImage = global::CalculatorWinforms.Properties.Resources.history1;
+            this.btnHistory.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnHistory.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnHistory.FlatAppearance.BorderSize = 0;
+            this.btnHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHistory.ForeColor = System.Drawing.Color.Transparent;
+            this.btnHistory.Location = new System.Drawing.Point(378, 29);
+            this.btnHistory.Name = "btnHistory";
+            this.btnHistory.Size = new System.Drawing.Size(39, 35);
+            this.btnHistory.TabIndex = 3;
+            this.btnHistory.UseVisualStyleBackColor = false;
+            this.btnHistory.Click += new System.EventHandler(this.BtnHistory_Click);
+            // 
+            // lblInfo
+            // 
+            this.lblInfo.AutoSize = true;
+            this.lblInfo.BackColor = System.Drawing.Color.Transparent;
+            this.lblInfo.Font = new System.Drawing.Font("Microsoft YaHei UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfo.ForeColor = System.Drawing.Color.White;
+            this.lblInfo.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.lblInfo.Location = new System.Drawing.Point(0, 33);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(299, 37);
+            this.lblInfo.TabIndex = 2;
+            this.lblInfo.Text = "The calculate is over";
+            this.lblInfo.Visible = false;
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(0, 0);
+            this.progressBar1.MarqueeAnimationSpeed = 50;
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.progressBar1.Size = new System.Drawing.Size(421, 23);
+            this.progressBar1.Step = 20;
+            this.progressBar1.TabIndex = 1;
             // 
             // lbl_Result
             // 
@@ -397,6 +445,7 @@ namespace CalculatorWinforms
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Calculator";
             this.gradientPanel1.ResumeLayout(false);
+            this.gradientPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -424,6 +473,9 @@ namespace CalculatorWinforms
         private System.Windows.Forms.Button btn_Dot;
         private System.Windows.Forms.Button btn_Equal;
         private System.Windows.Forms.Label lbl_Result;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Label lblInfo;
+        private System.Windows.Forms.Button btnHistory;
     }
 }
 
